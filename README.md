@@ -15,6 +15,13 @@ For install script:
 
 - gzip
 
+Download:
+
+```
+$ git clone https://github.com/sam-irl/ezscp.git
+$ cd ezscp
+```
+
 To get right to it:
 
 ```
