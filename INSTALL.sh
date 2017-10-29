@@ -45,10 +45,12 @@ else
 fi
 
 echo "installing ezscp"
+cp ezscp ezscp.tmp
 mv ezscp /usr/bin
 if [ $? -eq 0 ]
 then
   echo "ezscp installed to /usr/bin"
+  mv ezscp.tmp ezscp
 else
   echo "could not move to /usr/bin, do you have write permissions?"
   exit 1
@@ -64,10 +66,12 @@ else
 fi
 
 echo "installing manpage"
+cp ezscp.1 ezscp.1.tmp
 gzip ezscp.1
 if [ $? -eq 0 ]
 then
   echo "gzipped manpage"
+  mv ezscp.1.tmp ezscp.1
 else
   echo "problem gzipping manpage"
   exit 1
