@@ -119,6 +119,6 @@ then
   exit 0
 else
   echo "There was an error with scp. Read man scp for help, or try again."
-  exit 1
+  exit 2
 fi
 exit 0
