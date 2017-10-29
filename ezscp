@@ -48,10 +48,6 @@ read destHostname
 
 if [[ ! -z "${destHostname// }" ]]
 then
-  if [[ ! -z "${fileHostname// }" ]]
-  then
-    echo "You could've just used cp, and saved us both a lot of hassle. But fine."
-  fi
   echo "Please enter a user to copy the file to, on "$destHostname": "
   read destUser
   echo "Please enter a port to use for SSH. Defaults to 22: "
