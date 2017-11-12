@@ -4,10 +4,10 @@
 # loader            #
 #####################
 confFileLocation="/etc/ezscp/ezscp.conf"
-touch $confFileLocation
+sudo touch $confFileLocation
 if [ $? -eq 0 ]
 then
-  source $confFileLocation
+  sudo source $confFileLocation
 else
   echo "could not read configuration file, did you install from the script?"
   exit 1

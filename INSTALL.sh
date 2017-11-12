@@ -87,12 +87,12 @@ fi
 echo "installing configuration file"
 # function to do config
 config() {
+  echo "# ezscp configuration" > /etc/ezscp/ezscp.conf
   echo "version=1.0" >> /etc/ezscp/ezscp.conf
   echo "defaultSshPort=22" >> /etc/ezscp/ezscp.conf
 }
 # end function
-touch /etc/ezscp/ezscp.conf
-if [ $? -eq 0 ]
+if [ -f /etc/ezscp/ezscp.conf ]
 then
   echo "found an existing configuration file!"
   read -r -p "would you like to reset the configuration? [y/N] " response
@@ -104,6 +104,7 @@ then
           ;;
   esac
 else
+  mkdir /etc/ezscp
   config
 fi
 echo "script execution successful"
