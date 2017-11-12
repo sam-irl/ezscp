@@ -84,5 +84,27 @@ else
   echo "problem moving manpage to /usr/share/man/man1, do you have write permissions?"
   exit 1
 fi
+echo "installing configuration file"
+# function to do config
+config() {
+  echo "version=1.0" >> /etc/ezscp/ezscp.conf
+  echo "defaultSshPort=22" >> /etc/ezscp/ezscp.conf
+}
+# end function
+touch /etc/ezscp/ezscp.conf
+if [ $? -eq 0 ]
+then
+  echo "found an existing configuration file!"
+  read -r -p "would you like to reset the configuration? [y/N] " response
+  case "$response" in
+      [yY][eE][sS]|[yY])
+          config
+          ;;
+      *)
+          ;;
+  esac
+else
+  config
+fi
 echo "script execution successful"
 exit 0

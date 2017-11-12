@@ -1,4 +1,41 @@
 #!/usr/bin/env bash
+#####################
+# configuration     #
+# loader            #
+#####################
+confFileLocation="/etc/ezscp/ezscp.conf"
+touch $confFileLocation
+if [ $? -eq 0 ]
+then
+  source $confFileLocation
+else
+  echo "could not read configuration file, did you install from the script?"
+  exit 1
+fi
+#####################
+# update args check #
+# will skip if not  #
+# update.           #
+#####################
+if [[ $1 == "update" ]]
+then
+  if [[ $version == ${curl -sSL https://raw.githubusercontent.com/sam-irl/ezscp/master/version} ]]
+  then
+    echo "ezscp up-to-date"
+    exit 0
+  else
+    read -p "Newer version available. Enter to update, CTRL-C to abort."
+    curl -sSL https://raw.githubusercontent.com/sam-irl/ezscp/master/INSTALL.sh | sudo bash
+    if [ $? -eq 0 ]
+    then
+      exit 0
+    else
+      echo "Update failed."
+      exit 1
+    fi
+  fi
+fi
+# ezscp
 echo "Hello, "$USER", and welcome to ez-scp."
 echo "This provides a frontend to the scp command, more information can be found at its manual page."
 
