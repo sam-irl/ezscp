@@ -82,8 +82,6 @@ else
   then
     echo "Will attempt to copy from "$fileToCopy" to "$destUser"@"$destHostname":"$destFile" SSH port "$destSshPort""
   else
-    echo "Why didn't you just use cp?!?!"
-    echo "You people are intolerable!"
     echo "Will attempt to copy from "$fileToCopy" to "$destFile""
   fi
 fi
