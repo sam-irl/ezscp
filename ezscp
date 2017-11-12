@@ -7,7 +7,7 @@ confFileLocation="/etc/ezscp/ezscp.conf"
 sudo touch $confFileLocation
 if [ $? -eq 0 ]
 then
-  sudo source $confFileLocation
+  source $confFileLocation
 else
   echo "could not read configuration file, did you install from the script?"
   exit 1
