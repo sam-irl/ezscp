@@ -17,9 +17,10 @@ fi
 # will skip if not  #
 # update.           #
 #####################
+currentVersion = curl -sSL https://raw.githubusercontent.com/sam-irl/ezscp/master/version
 if [[ $1 == "update" ]]
 then
-  if [[ $version == ${curl -sSL https://raw.githubusercontent.com/sam-irl/ezscp/master/version} ]]
+  if [[ $version == $currentVersion ]]
   then
     echo "ezscp up-to-date"
     exit 0
