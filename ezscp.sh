@@ -17,6 +17,7 @@ fi
 # will skip if not  #
 # update.           #
 #####################
+version="0.1.1"
 if [[ $1 == "update" ]]
 then
   if [[ $version == $(curl -sSL https://raw.githubusercontent.com/sam-irl/ezscp/master/version) ]]
